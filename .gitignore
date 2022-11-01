@@ -1,2 +1,3 @@
 urlparser-csharp/obj
 .vs
+/urlparser-csharp/bin/Debug/net6.0
