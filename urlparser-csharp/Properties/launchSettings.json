@@ -1,7 +1,8 @@
 {
   "profiles": {
     "urlparser-csharp": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "url.txt"
     }
   }
 }
