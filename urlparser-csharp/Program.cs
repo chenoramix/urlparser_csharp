@@ -17,9 +17,9 @@ namespace urlparser_csharp
         {
             if(args.Length < 1)
             {
-                Console.WriteLine("Need more arguments\n");
+                Console.WriteLine("\nNeed more arguments\n");
                 Console.WriteLine("Usage:");
-                Console.WriteLine("urlparser.exe file.txt > output.txt");
+                Console.WriteLine("urlparser.exe file.txt > output.txt\n");
                 return;
             }
 
