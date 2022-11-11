@@ -40,7 +40,7 @@ namespace urlparser_csharp
                 }
 
                 JSONData jsonData = JsonSerializer.Deserialize<JSONData>(line)!;
-                if(jsonData != null)
+                if(jsonData.url != null)
                 {
                     Console.WriteLine(jsonData.url);
                 }
