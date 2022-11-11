@@ -1,9 +1,18 @@
 ﻿using System.IO;
+using System.Text.Json;
 
 namespace urlparser_csharp
 {
     internal class Program
     {
+        // json ob
+        public class JSONData
+        {
+            public string? url { get; set; }
+            public string? comment { get; set; }
+            public string? author { get; set; }
+
+        }
         static void Main(string[] args)
         {
             if(args.Length < 1)
@@ -14,12 +23,30 @@ namespace urlparser_csharp
                 return;
             }
 
-            foreach(string line in File.ReadLines(args[0]))
+            string fileName = args[0];
+
+            // check if the file exist.
+            if(!File.Exists(fileName))
             {
-                Console.WriteLine(line);
+                Console.WriteLine("File does not exist!");
+                return;
             }
 
-            Console.ReadLine();
+            foreach(string line in File.ReadLines(fileName))
+            {
+                if(!line.StartsWith("{\"url\":\""))
+                {
+                    continue;
+                }
+
+                JSONData jsonData = JsonSerializer.Deserialize<JSONData>(line)!;
+                if(jsonData != null)
+                {
+                    Console.WriteLine(jsonData.url);
+                }
+            }
+
+            // Console.ReadLine();
         }
     }
 }
